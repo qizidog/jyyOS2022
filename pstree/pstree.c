@@ -309,8 +309,8 @@ void print_proc_tree(ProcNode *root, const char *indence, const char *prefix, bo
         print_proc_tree(root->childs[i], space, cprefix, print_pid, n_sort);  // recursive print
 
         // 释放内存
-        free(root->childs[i]->name);
-        free(root->childs[i]);
+        // free(root->childs[i]->name);
+        // free(root->childs[i]);
     }
     free((void*)space);
 }
