@@ -312,7 +312,7 @@ void print_proc_tree(ProcNode *root, const char *indence, const char *prefix, bo
         // free(root->childs[i]->name);
         // free(root->childs[i]);
     }
-    free((void*)space);
+    // free((void*)space);
 }
 
 void argparse(int argc, char* argv[], boolean *show_pids, boolean *numeric_sort){
