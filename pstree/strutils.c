@@ -1,3 +1,6 @@
+#include <string.h>
+#include <stdlib.h>
+
 // string utils function
 
 int ssplit2arr(char *str, char ch, char *p1, char *p2){
