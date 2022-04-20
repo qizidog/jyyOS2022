@@ -61,8 +61,10 @@ void move() {
   } else if (event.keycode == AM_KEY_D && event.keydown) {
     cur_x = cur_x*SIDE<w-SIDE ? cur_x+1 : cur_x;
   }
-  draw_tile(cur_x * SIDE, cur_y * SIDE, SIDE, SIDE, 0xdd4c35);
-  draw_tile(last_x * SIDE, last_y * SIDE, SIDE, SIDE, ((last_x & 1)^(last_y & 1)) ? 0x007ACC : 0x0000);
+  if ((cur_x^last_x)||(cur_y^last_y)) {
+    draw_tile(cur_x * SIDE, cur_y * SIDE, SIDE, SIDE, 0xdd4c35);
+    draw_tile(last_x * SIDE, last_y * SIDE, SIDE, SIDE, ((last_x & 1)^(last_y & 1)) ? 0x007ACC : 0x0000);
+  }
 }
 
 
