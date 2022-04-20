@@ -58,13 +58,7 @@ void move() {
   } else if (event.keycode == AM_KEY_D && event.keydown) {
     cur_x = cur_x*SIDE<w ? cur_x+1 : cur_x;
   }
-  for (int x = 0; x * SIDE <= w; x++) {
-    for (int y = 0; y * SIDE <= h; y++) {
-      if ((x & 1) ^ (y & 1)) {  // x,y都为奇数或都为偶数时取0，否则取1
-        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0x007ACC); // white->0xffffff 我改成了0x007ACC->蓝色
-      }
-    }
-  }
+  splash();
   draw_tile(cur_x * SIDE, cur_y * SIDE, SIDE, SIDE, 0xdd4c35);
 }
 
