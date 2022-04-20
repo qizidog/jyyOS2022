@@ -58,7 +58,6 @@ void move() {
   } else if (event.keycode == AM_KEY_D && event.keydown) {
     cur_x = cur_x*SIDE<w ? cur_x+1 : cur_x;
   }
-  splash();
   draw_tile(cur_x * SIDE, cur_y * SIDE, SIDE, SIDE, 0xdd4c35);
 }
 
