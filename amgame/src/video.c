@@ -31,6 +31,7 @@ void splash() {
       }
     }
   }
+  draw_tile(0, 0, SIDE, SIDE, 0xdd4c35);
 }
 
 #define KEYNAME(key) [AM_KEY_##key] = #key,
@@ -43,6 +44,7 @@ static int last_x = 0, last_y = 0;
 static int cur_x = 0, cur_y = 0;
 
 void move() {
+  // W S A D 四个键控制上下左右，移动小方块
   AM_INPUT_KEYBRD_T event = { .keycode = AM_KEY_NONE };
   ioe_read(AM_INPUT_KEYBRD, &event);
   if (event.keycode != AM_KEY_NONE && event.keydown) {
