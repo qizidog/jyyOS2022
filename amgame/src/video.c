@@ -63,6 +63,7 @@ void move() {
   } else if (event.keycode == AM_KEY_L && event.keydown) {
     cur_x = cur_x*SIDE<w-SIDE ? cur_x+1 : cur_x;
   } else if (event.keycode == AM_KEY_ESCAPE && event.keydown) {
+    puts("Game Over!\n");
     halt(0);
   }
   if ((cur_x^last_x)||(cur_y^last_y)) {
