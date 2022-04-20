@@ -32,3 +32,35 @@ void splash() {
     }
   }
 }
+
+#define KEYNAME(key) [AM_KEY_##key] = #key,
+
+static const char *key_names[] = {
+  AM_KEYS(KEYNAME)
+};
+
+static int cur_x = 0, cur_y = 0;
+
+void move() {
+  AM_INPUT_KEYBRD_T event = { .keycode = AM_KEY_NONE };
+  ioe_read(AM_INPUT_KEYBRD, &event);
+  if (event.keycode != AM_KEY_NONE && event.keydown) {
+    puts("Key pressed: ");
+    puts(key_names[event.keycode]);
+    puts("\n");
+  }
+  if (event.keycode == AM_KEY_W && event.keydown) {
+    cur_y = cur_y==0 ? 0 : cur_y-1;
+  } else if (event.keycode == AM_KEY_S && event.keydown) {
+    cur_y = cur_y*SIDE<=h ? cur_y+1 : cur_y;
+  } else if (event.keycode == AM_KEY_A && event.keydown) {
+    cur_x = cur_x==0 ? 0 : cur_x-1;
+  } else if (event.keycode == AM_KEY_D && event.keydown) {
+    cur_x = cur_x*SIDE<=w ? cur_x+1 : cur_x;
+  }
+  draw_tile(cur_x * SIDE, cur_y * SIDE, SIDE, SIDE, 0xdd4c35);
+}
+
+
+
+
