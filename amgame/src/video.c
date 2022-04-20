@@ -52,12 +52,13 @@ void move() {
   if (event.keycode == AM_KEY_W && event.keydown) {
     cur_y = cur_y==0 ? 0 : cur_y-1;
   } else if (event.keycode == AM_KEY_S && event.keydown) {
-    cur_y = cur_y*SIDE<=h ? cur_y+1 : cur_y;
+    cur_y = cur_y*SIDE<h ? cur_y+1 : cur_y;
   } else if (event.keycode == AM_KEY_A && event.keydown) {
     cur_x = cur_x==0 ? 0 : cur_x-1;
   } else if (event.keycode == AM_KEY_D && event.keydown) {
-    cur_x = cur_x*SIDE<=w ? cur_x+1 : cur_x;
+    cur_x = cur_x*SIDE<w ? cur_x+1 : cur_x;
   }
+  splash();
   draw_tile(cur_x * SIDE, cur_y * SIDE, SIDE, SIDE, 0xdd4c35);
 }
 
