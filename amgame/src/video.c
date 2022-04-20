@@ -44,7 +44,7 @@ static int last_x = 0, last_y = 0;
 static int cur_x = 0, cur_y = 0;
 
 void move() {
-  /** 用 W S A D 四个键控制上下左右来移动小方块 */
+  /** 用 K J H L 四个键控制上下左右来移动小方块 */
   AM_INPUT_KEYBRD_T event = { .keycode = AM_KEY_NONE };
   ioe_read(AM_INPUT_KEYBRD, &event);
   if (event.keycode != AM_KEY_NONE && event.keydown) {
@@ -54,13 +54,13 @@ void move() {
   }
   last_x = cur_x;
   last_y = cur_y;
-  if (event.keycode == AM_KEY_W && event.keydown) {
+  if (event.keycode == AM_KEY_K && event.keydown) {
     cur_y = cur_y==0 ? 0 : cur_y-1;
-  } else if (event.keycode == AM_KEY_S && event.keydown) {
+  } else if (event.keycode == AM_KEY_J && event.keydown) {
     cur_y = cur_y*SIDE<h-SIDE ? cur_y+1 : cur_y;
-  } else if (event.keycode == AM_KEY_A && event.keydown) {
+  } else if (event.keycode == AM_KEY_H && event.keydown) {
     cur_x = cur_x==0 ? 0 : cur_x-1;
-  } else if (event.keycode == AM_KEY_D && event.keydown) {
+  } else if (event.keycode == AM_KEY_L && event.keydown) {
     cur_x = cur_x*SIDE<w-SIDE ? cur_x+1 : cur_x;
   } else if (event.keycode == AM_KEY_ESCAPE && event.keydown) {
     halt(0);
